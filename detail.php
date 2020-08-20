@@ -12,7 +12,7 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
 
-    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -174,8 +174,6 @@
 
                                 $preference->items = array($item);
                                 $preference->payer = $payer;
-                                $preference->payment_methods = $payment_methods;
-                                $preference->back_urls = $back_urls;
                                 $preference->save();
                                 ?>
 
