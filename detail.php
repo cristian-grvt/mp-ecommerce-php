@@ -111,36 +111,87 @@
                                 // Crea un objeto de preferencia
                                 $preference = new MercadoPago\Preference();
 
-                                // Crea un ítem en la preferencia
+                                // Items
                                 $item = new MercadoPago\Item();
+                                $item->id = "1234";
                                 $item->title = $_POST['title'];
+                                $item->description = "Dispositivo móvil de Tienda e-commerce";
+                                $item->category_id = "home";
                                 $item->quantity = $_POST['unit'];
+                                $item->currency_id = "ARS";
                                 $item->unit_price = $_POST['price'];
+                                $item->picture_url = $_POST['img'];
+                                
+                                // Comprador
+                                $payer = new MercadoPago\Payer();
+                                $payer->name = "Lalo";
+                                $payer->surname = "Landa";
+                                $payer->email = "test_user_63274575@testuser.com";
+                                $payer->date_created = "2018-06-02T12:58:41.425-04:00";
+                                $payer->phone = array(
+                                    "area_code" => "11",
+                                    "number" => "22223333"
+                                );
+                                $payer->identification = array(
+                                    "type" => "DNI",
+                                    "number" => "12345678"
+                                );
+                                $payer->address = array(
+                                    "street_name" => "False",
+                                    "street_number" => "123",
+                                    "zip_code" => "1111"
+                                );
+
+                                // Back_url
+                                $preference->back_urls = array(
+                                    "success" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/success.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
+                                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                    "failure" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/failure.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
+                                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                    "pending" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/pending.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
+                                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                );
+                                $preference->auto_return = "approved";
+
+                                // Payment methods
+                                $preference->payment_methods = array(
+                                    "excluded_payment_methods" => array(
+                                      array("id" => "amex")
+                                    ),
+                                    "excluded_payment_types" => array(
+                                      array("id" => "atm")
+                                    ),
+                                    "installments" => 6
+                                  );
+
                                 $preference->items = array($item);
+                                $preference->payer = $payer;
+                                $preference->payment_methods = $payment_methods;
+                                $preference->back_urls = $back_urls;
                                 $preference->save();
                                 ?>
 
-                                
-                                    <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                                        <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
-                                            <div class="as-producttile-title">
-                                                <h3 class="as-producttile-name">
-                                                    <p class="as-producttile-tilelink">
-                                                        <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
-                                                    </p>
-                                                </h3>
-                                            </div>
-                                            <h3 >
-                                                <?php echo "$" . $_POST['price'] ?>
-                                            </h3>
-                                            <h3 >
-                                                <?php echo "Unidades:" .  $_POST['unit'] ?>
+                                <div class="as-producttile-info" style="float:left;min-height: 168px;">
+                                    <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
+                                        <div class="as-producttile-title">
+                                            <h3 class="as-producttile-name">
+                                                <p class="as-producttile-tilelink">
+                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
+                                                </p>
                                             </h3>
                                         </div>
-                                        <form action="/procesar-pago" method="POST">
-                                            <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>"></script>
-                                        </form>
-                                    </div>  
+                                        <h3 >
+                                            <?php echo "$" . $_POST['price'] ?>
+                                        </h3>
+                                        <h3 >
+                                            <?php echo "Unidades:" .  $_POST['unit'] ?>
+                                        </h3>
+                                    </div>
+                                    <a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
+                                </div>  
                             </div>
                         </div>
                     </div>
