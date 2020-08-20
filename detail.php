@@ -144,16 +144,13 @@
                                 );
                                 
                                 // Back_url
+                                //     ?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
+                                //     erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                //     =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null
                                 $preference->back_urls = array(
-                                    "success" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/success.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
-                                    "failure" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/failure.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
-                                    "pending" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/pending.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                    "success" => "https://cristian-grvt-mp-commerce-php.herokuapp.com/success.php",
+                                    "failure" => "https://cristian-grvt-mp-commerce-php.herokuapp.com/failure.php",
+                                    "pending" => "https://cristian-grvt-mp-commerce-php.herokuapp.com/pending.php",
                                 );
                                 $preference->auto_return = "approved";
                                 
@@ -177,7 +174,7 @@
                                 $preference->save();
                                 ?>
 
-<div class="as-producttile-info" style="float:left;min-height: 168px;">
+                                <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
