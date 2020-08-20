@@ -502,16 +502,16 @@
                     <div class="as-producttile-title">
                       <h3 class="as-producttile-name">
                         <p class="as-producttile-tilelink">
-                          <span data-ase-truncate="2"><?php echo $_POST['collection_id'] ?></span>
+                          <span data-ase-truncate="2"><?php echo $_GET['collection_id'] ?></span>
                         </p>
                       </h3>
                     </div>
                     <ul>
-                      <li><?php echo "$" . $_POST['collection_status'] ?></li>
-                      <li><?php echo "$" . $_POST['external_reference'] ?></li>
-                      <li><?php echo "$" . $_POST['payment_type'] ?></li>
-                      <li><?php echo "$" . $_POST['preference_id'] ?></li>
-                      <li><?php echo "$" . $_POST['site_id'] ?></li>
+                      <li><?php echo $_GET['collection_status'] ?></li>
+                      <li><?php echo $_GET['external_reference'] ?></li>
+                      <li><?php echo $_GET['payment_type'] ?></li>
+                      <li><?php echo $_GET['preference_id'] ?></li>
+                      <li><?php echo $_GET['site_id'] ?></li>
                     </ul>
                   </div>
                   <a href="<?php echo $preference->init_point; ?>">
