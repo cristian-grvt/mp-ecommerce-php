@@ -107,6 +107,7 @@
 
                                 // Agrega credenciales
                                 MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+                                MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
                                 // Crea un objeto de preferencia
                                 $preference = new MercadoPago\Preference();
@@ -141,31 +142,35 @@
                                     "street_number" => "123",
                                     "zip_code" => "1111"
                                 );
-
+                                
                                 // Back_url
                                 $preference->back_urls = array(
                                     "success" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/success.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
                                     "failure" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/failure.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
                                     "pending" =>    "https://cristian-grvt-mp-commerce-php.herokuapp.com/pending.php?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
+                                    erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
+                                    =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null",
                                 );
                                 $preference->auto_return = "approved";
-
+                                
                                 // Payment methods
                                 $preference->payment_methods = array(
                                     "excluded_payment_methods" => array(
-                                      array("id" => "amex")
+                                        array("id" => "amex")
                                     ),
                                     "excluded_payment_types" => array(
-                                      array("id" => "atm")
+                                        array("id" => "atm")
                                     ),
                                     "installments" => 6
-                                  );
+                                );
+                                
+                                $preference->external_reference = 'cristian@gruvit.com.ar';
+
+                                $preference->notification_url = 'https://cristian-grvt-mp-commerce-php.herokuapp.com/notifications.php';
 
                                 $preference->items = array($item);
                                 $preference->payer = $payer;
@@ -174,7 +179,7 @@
                                 $preference->save();
                                 ?>
 
-                                <div class="as-producttile-info" style="float:left;min-height: 168px;">
+<div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
@@ -190,7 +195,9 @@
                                             <?php echo "Unidades:" .  $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
+                                    <a href="<?php echo $preference->init_point; ?>">
+                                        <button type="submit" class="mercadopago-button">Pagar</button>
+                                    </a>
                                 </div>  
                             </div>
                         </div>
