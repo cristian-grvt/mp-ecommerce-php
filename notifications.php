@@ -8,6 +8,7 @@ switch($_POST["type"]) {
   case "payment":
       $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
       error_log($payment);
+      error_log(json_encode ($_POST), 0);
       var_dump($payment);
       die();
       break;
