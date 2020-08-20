@@ -514,9 +514,6 @@
                       <li><?php echo $_GET['site_id'] ?></li>
                     </ul>
                   </div>
-                  <a href="<?php echo $preference->init_point; ?>">
-                    <button type="submit" class="mercadopago-button">Pagar</button>
-                  </a>
                 </div>
               </div>
             </div>

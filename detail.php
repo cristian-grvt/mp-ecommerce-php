@@ -144,9 +144,6 @@
                                 );
                                 
                                 // Back_url
-                                //     ?collection_id=[PAYMENT_ID]&collection_status=approved&external_ref
-                                //     erence=[EXTERNAL_REFERENCE]&payment_type=credit_card&preference_id=[PREFERENCE_ID]&site_id
-                                //     =[SITE_ID]&processing_mode=aggregator&merchant_account_id=null
                                 $preference->back_urls = array(
                                     "success" => "https://cristian-grvt-mp-commerce-php.herokuapp.com/success.php",
                                     "failure" => "https://cristian-grvt-mp-commerce-php.herokuapp.com/failure.php",
