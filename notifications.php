@@ -8,20 +8,15 @@ require __DIR__ .  '/vendor/autoload.php';
 MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398");
 
 
-switch($_POST["type"]) {
+$merchant_order = null;
+
+switch($_GET["topic"]) {
   case "payment":
-      $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
-      error_log(json_encode ($_POST), 0);
-      error_log($payment, 0);
+      $payment = MercadoPago\Payment::find_by_id($_GET["id"]);
+      $merchant_order = MercadoPago\MerchantOrder::find_by_id($payment->order->id);
       break;
-  case "plan":
-      $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
-      break;
-  case "subscription":
-      $plan = MercadoPago\Subscription.find_by_id($_POST["id"]);
-      break;
-  case "invoice":
-      $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
+  case "merchant_order":
+      $merchant_order = MercadoPago\MerchantOrder::find_by_id($_GET["id"]);
       break;
 }
 
