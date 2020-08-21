@@ -83,6 +83,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php echo $_POST['img'] ?>
                         <div class="as-accessories-results  as-search-desktop">
                             <div class="width:60%">
                                 <div class="as-producttile-tilehero with-paddlenav " style="float:left;">
@@ -121,7 +122,7 @@
                                 $item->quantity = $_POST['unit'];
                                 $item->currency_id = "ARS";
                                 $item->unit_price = $_POST['price'];
-                                $item->picture_url = $_POST['img'];
+                                $item->picture_url = "https://cristian-grvt-mp-commerce-php.herokuapp.com/" . $_POST['img'];
                                 
                                 // Comprador
                                 $payer = new MercadoPago\Payer();
