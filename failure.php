@@ -507,11 +507,6 @@
                       </h3>
                     </div>
                     <ul>
-                      <li><?php echo $_GET['collection_status'] ?></li>
-                      <li><?php echo $_GET['external_reference'] ?></li>
-                      <li><?php echo $_GET['payment_type'] ?></li>
-                      <li><?php echo $_GET['preference_id'] ?></li>
-                      <li><?php echo $_GET['site_id'] ?></li>
                     </ul>
                   </div>
                 </div>

@@ -117,9 +117,7 @@
                                 $item->id = "1234";
                                 $item->title = $_POST['title'];
                                 $item->description = "Dispositivo móvil de Tienda e-commerce";
-                                $item->category_id = "home";
                                 $item->quantity = $_POST['unit'];
-                                $item->currency_id = "ARS";
                                 $item->unit_price = $_POST['price'];
                                 $item->picture_url = "https://cristian-grvt-mp-commerce-php.herokuapp.com/" . $_POST['img'];
                                 
