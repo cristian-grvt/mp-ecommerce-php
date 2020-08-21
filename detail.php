@@ -117,9 +117,9 @@
                                 $item->id = "1234";
                                 $item->title = $_POST['title'];
                                 $item->description = "Dispositivo móvil de Tienda e-commerce";
-                                $item->quantity = $_POST['unit'];
+                                $item->quantity = 1;
                                 $item->unit_price = $_POST['price'];
-                                $item->picture_url = "https://cristian-grvt-mp-commerce-php.herokuapp.com/" . $_POST['img'];
+                                $item->picture_url = "https://cristian-grvt-mp-commerce-php.herokuapp.com" . $_POST['img'];
                                 
                                 // Comprador
                                 $payer = new MercadoPago\Payer();
