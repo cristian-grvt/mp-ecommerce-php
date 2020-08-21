@@ -164,7 +164,7 @@
                                 
                                 $preference->external_reference = "cristian@gruvit.com.ar";
 
-                                $preference->notification_url = "https://cristian-grvt-mp-commerce-php.herokuapp.com/notifications.php";
+                                $preference->notification_url = "https://cristian-grvt-mp-commerce-php.herokuapp.com/notificaciones.php";
 
                                 $preference->items = array($item);
                                 $preference->payer = $payer;
