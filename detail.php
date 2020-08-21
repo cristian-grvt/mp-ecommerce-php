@@ -188,7 +188,7 @@
                                         </h3>
                                     </div>
                                     <a href="<?php echo $preference->init_point; ?>">
-                                        <button type="submit" class="mercadopago-button">Pagar</button>
+                                        <button type="submit" class="mercadopago-button">Pagar la compra</button>
                                     </a>
                                 </div>  
                             </div>
