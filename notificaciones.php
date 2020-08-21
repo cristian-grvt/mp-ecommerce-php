@@ -1,3 +1,5 @@
 <?php
- error_log(json_encode ($_POST), 0);
+error_log("Registro Notificaciones");
+$data = json_decode(file_get_contents('php://input'), true);
+error_log(json_encode($data));
 ?>
