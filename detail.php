@@ -83,7 +83,6 @@
                                 </div>
                             </div>
                         </div>
-                        <?php echo $_POST['img'] ?>
                         <div class="as-accessories-results  as-search-desktop">
                             <div class="width:60%">
                                 <div class="as-producttile-tilehero with-paddlenav " style="float:left;">
